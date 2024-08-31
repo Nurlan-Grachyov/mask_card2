@@ -1,6 +1,8 @@
 bank_account = input()
+
+
 def mask_account_card(card_or_account: str) -> str:
-    if 'Счет' in card_or_account:
+    if "Счет" in card_or_account:
         """Шифрует номер счета"""
         slice_acc = card_or_account[5:21]
         mask_acc = card_or_account.replace(slice_acc, "**")
@@ -11,4 +13,16 @@ def mask_account_card(card_or_account: str) -> str:
         mask_card = card_or_account.replace(slice_card, "******")
         new_mask_card = mask_card[:-12] + " " + mask_card[-12:-8] + " " + mask_card[-8:-4] + " " + mask_card[-4:]
         return new_mask_card
+
+
 print(mask_account_card(bank_account))
+
+data = input()
+
+
+def get_date(date: str) -> str:
+    """Определяем дату"""
+    return f"{date[8:10]}.{date[5:7]}.{date[0:4]}"
+
+
+print(get_date(data))
