@@ -1,9 +1,10 @@
 from src.masks import get_mask_account, get_mask_card_number
+
 """Ввод пользователя"""
 bank_account = str(input().lower())
 
 
-def mask_account_card():
+def mask_account_card(bank_account: str) -> str:
     if bank_account.lower().startswith("счет"):
         """Шифрует номер счета"""
         # slice_acc = bank_account[5:21]
@@ -19,7 +20,7 @@ def mask_account_card():
         return get_mask_card_number(bank_account)
 
 
-print(mask_account_card())
+print(mask_account_card(bank_account))
 data = str(input())
 
 
