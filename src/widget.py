@@ -1,21 +1,25 @@
+from src.masks import get_mask_account, get_mask_card_number
+"""Ввод пользователя"""
 bank_account = str(input().lower())
 
 
-def mask_account_card(card_or_account: str) -> str:
-    if "Счет" in card_or_account:
+def mask_account_card():
+    if bank_account.lower().startswith("счет"):
         """Шифрует номер счета"""
-        slice_acc = card_or_account[5:21]
-        mask_acc = card_or_account.replace(slice_acc, "**")
-        return mask_acc
+        # slice_acc = bank_account[5:21]
+        # mask_acc = bank_account.replace(slice_acc, "**")
+        # return mask_acc
+        return get_mask_account(bank_account)
     else:
         """Шифрует номер карты"""
-        slice_card = card_or_account[-10:-4]
-        mask_card = card_or_account.replace(slice_card, "******")
-        new_mask_card = mask_card[:-12] + " " + mask_card[-12:-8] + " " + mask_card[-8:-4] + " " + mask_card[-4:]
-        return new_mask_card
+        # slice_card = card_or_account[-10:-4]
+        # mask_card = card_or_account.replace(slice_card, "******")
+        # new_mask_card = mask_card[:-12] + " " + mask_card[-12:-8] + " " + mask_card[-8:-4] + " " + mask_card[-4:]
+        # return new_mask_card
+        return get_mask_card_number(bank_account)
 
 
-print(mask_account_card(bank_account))
+print(mask_account_card())
 data = str(input())
 
 
