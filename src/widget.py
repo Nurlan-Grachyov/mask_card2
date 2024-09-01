@@ -1,6 +1,6 @@
-import mask
+import masks
 
-data = input()
+data = str(input())
 
 
 def get_date(date: str) -> str:
