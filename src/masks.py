@@ -1,4 +1,4 @@
-bank_account = input().lower()
+bank_account = str(input().lower())
 
 
 def mask_account_card(card_or_account: str) -> str:
