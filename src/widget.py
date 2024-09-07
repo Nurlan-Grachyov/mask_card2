@@ -22,3 +22,5 @@ if __name__ == "__main__":
     # Ввод даты
     data = str(input('Введите дату '))
     print(get_date(data))
+
+# что происходит???
