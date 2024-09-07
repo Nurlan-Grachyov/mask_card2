@@ -1,12 +1,12 @@
 from src.masks import get_mask_account, get_mask_card_number
 
 
-def mask_account_card(bank_account: str) -> str:
+def mask_account_card(bank_acc: str) -> str:
     """Возвращает реквизиты счета или карты с зашифрованным номером"""
-    if bank_account.lower().startswith("счет"):
-        return get_mask_account(bank_account)
+    if bank_acc.lower().startswith("счет"):
+        return get_mask_account(bank_acc)
     else:
-        return get_mask_card_number(bank_account)
+        return get_mask_card_number(bank_acc)
 
 
 def get_date(date: str) -> str:
@@ -16,9 +16,9 @@ def get_date(date: str) -> str:
 
 if __name__ == "__main__":
     # Ввод счета или номера карты
-    bank_account = str(input().lower())
+    bank_account = str(input("Введите карту или счет ").lower())
     print(mask_account_card(bank_account))
 
     # Ввод даты
-    data = str(input())
+    data = str(input('Введите дату '))
     print(get_date(data))
