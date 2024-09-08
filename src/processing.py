@@ -1,5 +1,6 @@
 from typing import Any
 
+
 def filter_by_state(start_list: list[dict[str, object]], state: str = "EXECUTED") -> list[dict[str, object]]:
     """Сортировка списка словарей по ключу state"""
     list = []
