@@ -8,7 +8,7 @@ def filter_by_state(start_list: list[dict[str, object]], state: str = "EXECUTED"
         if i["state"] == state:
             new_list.append(i)
     return new_list
-
+  
 
 def sort_by_date(list_d: list[dict[str, Any]], reverse: bool = True) -> list[dict[str, Any]]:
     """Сортировка списка словарей по дате в порядке убывания"""
