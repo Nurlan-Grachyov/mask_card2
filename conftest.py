@@ -1,43 +1,71 @@
-from typing import Any
-
 import pytest
 
 
-@pytest.fixture()
-def get_mask_account(acc: str) -> str:
-    """Возвращает реквизиты счета с зашифрованным номером"""
-    counter = 0
-    for num in acc:
-        if num.isdigit():
-            counter += 1
-    if counter == 20 and acc[-20:].isdigit():
-        slice_acc = acc[-20:-4]
-        mask_acc = acc.replace(slice_acc, "**")
-        return mask_acc
-    else:
-        return "Некорректный ввод"
+@pytest.fixture
+def input_1() -> list[dict[str, int | str]]:
+    return [
+        {"id": 41428829, "state": "EXECUTED", "date": "2019-07-03T18:35:29.512364"},
+        {"id": 939719570, "state": "EXECUTED", "date": "2018-06-30T02:08:58.425572"},
+        {"id": 594226727, "state": "CANCELED", "date": "2018-09-12T21:27:25.241689"},
+        {"id": 615064591, "state": "CANCELED", "date": "2018-10-14T08:21:33.419441"},
+    ]
 
 
-@pytest.fixture()
-def get_date(date: str) -> str:
-    """Преобразует дату из формата гггг-мм-ддТч:м:с.мс в дд.мм.гггг"""
-    if len(date) == 26 and date[8:10].isdigit() and date[5:7].isdigit() and date[:4].isdigit():
-        return f"{date[8:10]}.{date[5:7]}.{date[0:4]}"
-    else:
-        return "Некорректная дата"
+@pytest.fixture
+def reverse_1() -> str:
+    return 'да'
 
 
-@pytest.fixture()
-def sort_by_date(list_d: list[dict[str, Any]], reverse: bool) -> list[dict[str, Any]]:
-    """Сортировка списка словарей по дате в порядке убывания"""
-    for i in list_d:
-        if "date" in i:
-            if reverse:
-                sorted_list = sorted(list_d, key=lambda x: x["date"], reverse=True)
-            elif not reverse:
-                sorted_list = sorted(list_d, key=lambda x: x["date"], reverse=False)
-            else:
-                sorted_list = sorted(list_d, key=lambda x: x["date"], reverse=True)
-        else:
-            return "Даты нет"
-        return sorted_list
+@pytest.fixture
+def exit_1() -> list[dict[str, int | str]]:
+    return [
+        {"id": 41428829, "state": "EXECUTED", "date": "2019-07-03T18:35:29.512364"},
+        {"id": 615064591, "state": "CANCELED", "date": "2018-10-14T08:21:33.419441"},
+        {"id": 594226727, "state": "CANCELED", "date": "2018-09-12T21:27:25.241689"},
+        {"id": 939719570, "state": "EXECUTED", "date": "2018-06-30T02:08:58.425572"},
+    ]
+
+
+@pytest.fixture
+def input_2() -> list[dict[str, int | str]]:
+    return [
+        {"id": 41428829, "state": "EXECUTED"},
+        {"id": 939719570, "state": "EXECUTED"},
+        {"id": 594226727, "state": "CANCELED"},
+        {"id": 615064591, "state": "CANCELED"},
+    ]
+
+
+@pytest.fixture
+def reverse_2() -> str:
+    return 'да'
+
+
+@pytest.fixture
+def exit_2() -> str:
+    return "Даты нет"
+
+
+@pytest.fixture
+def input_3() -> list[dict[str, int | str]]:
+    return [
+        {"id": 41428829, "state": "EXECUTED", "date": "2019-07-03T18:35:29.512364"},
+        {"id": 939719570, "state": "EXECUTED", "date": "2018-06-30T02:08:58.425572"},
+        {"id": 594226727, "state": "CANCELED", "date": "2018-09-12T21:27:25.241689"},
+        {"id": 615064591, "state": "CANCELED", "date": "2018-10-14T08:21:33.419441"},
+    ]
+
+
+@pytest.fixture
+def reverse_3() -> str:
+    return 'нет'
+
+
+@pytest.fixture
+def exit_3() -> list[dict[str, int | str]]:
+    return [
+        {"id": 939719570, "state": "EXECUTED", "date": "2018-06-30T02:08:58.425572"},
+        {"id": 594226727, "state": "CANCELED", "date": "2018-09-12T21:27:25.241689"},
+        {"id": 615064591, "state": "CANCELED", "date": "2018-10-14T08:21:33.419441"},
+        {"id": 41428829, "state": "EXECUTED", "date": "2019-07-03T18:35:29.512364"},
+    ]
