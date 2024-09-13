@@ -38,7 +38,17 @@ def test_filter_by_state(
     assert filter_by_state(after_list, user_state) == before_list
 
 
-def test_sort_by_date(input_1, reverse_1, exit_1, input_2, reverse_2, exit_2, input_3, reverse_3, exit_3) -> None:
+def test_sort_by_date(
+    input_1: Any,
+    reverse_1: str,
+    exit_1: Any,
+    input_2: Any,
+    reverse_2: str,
+    exit_2: Any,
+    input_3: Any,
+    reverse_3: str,
+    exit_3: Any,
+) -> Any:
     assert sort_by_date(input_1, reverse_1) == exit_1
     assert sort_by_date(input_2, reverse_2) == exit_2
     assert sort_by_date(input_3, reverse_3) == exit_3

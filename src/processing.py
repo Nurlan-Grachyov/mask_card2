@@ -1,4 +1,4 @@
-from typing import Any, Dict, List, Union
+from typing import Any
 
 
 def filter_by_state(start_list: list[dict[str, object]], state: str = "EXECUTED") -> list[dict[str, object]]:
@@ -12,14 +12,14 @@ def filter_by_state(start_list: list[dict[str, object]], state: str = "EXECUTED"
     return filtered_data
 
 
-def sort_by_date(list_d: list[dict[str, Any]], reverse: str) -> Union[str, List[Dict[str, str | int]]]:
+def sort_by_date(list_d: list[dict[str, Any]], reverse: str) -> Any:
     """Сортировка списка словарей по дате в порядке убывания"""
     sorted_list = []
     for i in list_d:
         if "date" in i:
-            if reverse == 'да':
+            if reverse == "да":
                 sorted_list = sorted(list_d, key=lambda x: x["date"], reverse=True)
-            elif reverse == 'нет':
+            elif reverse == "нет":
                 sorted_list = sorted(list_d, key=lambda x: x["date"])
             else:
                 sorted_list = sorted(list_d, key=lambda x: x["date"], reverse=True)
