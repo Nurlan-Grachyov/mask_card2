@@ -39,15 +39,15 @@ def test_filter_by_state(
 
 
 def test_sort_by_date(
-    input_1: Any,
+    input_1: list[dict[str, str | int]],
     reverse_1: str,
-    exit_1: Any,
-    input_2: Any,
+    exit_1: list[dict[str, str | int]],
+    input_2: list[dict[str, str | int]],
     reverse_2: str,
-    exit_2: Any,
-    input_3: Any,
+    exit_2: list[dict[str, str | int]],
+    input_3: list[dict[str, str | int]],
     reverse_3: str,
-    exit_3: Any,
+    exit_3: list[dict[str, str | int]],
 ) -> Any:
     assert sort_by_date(input_1, reverse_1) == exit_1
     assert sort_by_date(input_2, reverse_2) == exit_2
