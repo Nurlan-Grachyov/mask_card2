@@ -1,3 +1,7 @@
+from typing import Any
+
+from dateutil import parser
+
 from src.masks import get_mask_account, get_mask_card_number
 
 
@@ -15,12 +19,16 @@ def mask_account_card(bank_acc: str) -> str:
         return "Некорректный ввод"
 
 
-def get_date(date: str) -> str:
+def get_date(date: str) -> Any:
     """Преобразует дату из формата гггг-мм-ддТч:м:с.мс в дд.мм.гггг"""
-    if len(date) == 26 and date[8:10].isdigit() and date[5:7].isdigit() and date[:4].isdigit():
-        return f"{date[8:10]}.{date[5:7]}.{date[0:4]}"
-    else:
-        return "Некорректная дата"
+    bad_result = "Некорректная дата"
+    if date:
+        try:
+            parsed = parser.parse(date).strftime("%d.%m.%Y")
+            return parsed
+        except parser.ParserError:
+            pass
+    return bad_result
 
 
 if __name__ == "__main__":

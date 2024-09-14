@@ -38,44 +38,17 @@ def test_filter_by_state(
     assert filter_by_state(after_list, user_state) == before_list
 
 
-def test_sort_by_date() -> None:
-    assert sort_by_date(
-        [
-            {"id": 41428829, "state": "EXECUTED", "date": "2019-07-03T18:35:29.512364"},
-            {"id": 939719570, "state": "EXECUTED", "date": "2018-06-30T02:08:58.425572"},
-            {"id": 594226727, "state": "CANCELED", "date": "2018-09-12T21:27:25.241689"},
-            {"id": 615064591, "state": "CANCELED", "date": "2018-10-14T08:21:33.419441"},
-        ],
-        True,
-    ) == [
-        {"id": 41428829, "state": "EXECUTED", "date": "2019-07-03T18:35:29.512364"},
-        {"id": 615064591, "state": "CANCELED", "date": "2018-10-14T08:21:33.419441"},
-        {"id": 594226727, "state": "CANCELED", "date": "2018-09-12T21:27:25.241689"},
-        {"id": 939719570, "state": "EXECUTED", "date": "2018-06-30T02:08:58.425572"},
-    ]
-    assert (
-        sort_by_date(
-            [
-                {"id": 41428829, "state": "EXECUTED"},
-                {"id": 939719570, "state": "EXECUTED"},
-                {"id": 594226727, "state": "CANCELED"},
-                {"id": 615064591, "state": "CANCELED"},
-            ],
-            True,
-        )
-        == "Даты нет"
-    )
-    assert sort_by_date(
-        [
-            {"id": 41428829, "state": "EXECUTED", "date": "2019-07-03T18:35:29.512364"},
-            {"id": 939719570, "state": "EXECUTED", "date": "2018-06-30T02:08:58.425572"},
-            {"id": 594226727, "state": "CANCELED", "date": "2018-09-12T21:27:25.241689"},
-            {"id": 615064591, "state": "CANCELED", "date": "2018-10-14T08:21:33.419441"},
-        ],
-        False,
-    ) == [
-        {"id": 939719570, "state": "EXECUTED", "date": "2018-06-30T02:08:58.425572"},
-        {"id": 594226727, "state": "CANCELED", "date": "2018-09-12T21:27:25.241689"},
-        {"id": 615064591, "state": "CANCELED", "date": "2018-10-14T08:21:33.419441"},
-        {"id": 41428829, "state": "EXECUTED", "date": "2019-07-03T18:35:29.512364"},
-    ]
+def test_sort_by_date(
+    input_1: list[dict[str, str | int]],
+    reverse_1: str,
+    exit_1: list[dict[str, str | int]],
+    input_2: list[dict[str, str | int]],
+    reverse_2: str,
+    exit_2: list[dict[str, str | int]],
+    input_3: list[dict[str, str | int]],
+    reverse_3: str,
+    exit_3: list[dict[str, str | int]],
+) -> Any:
+    assert sort_by_date(input_1, reverse_1) == exit_1
+    assert sort_by_date(input_2, reverse_2) == exit_2
+    assert sort_by_date(input_3, reverse_3) == exit_3
