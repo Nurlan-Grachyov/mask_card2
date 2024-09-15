@@ -1,5 +1,3 @@
-import random
-
 transactions = [
     {
         "id": 939719570,
@@ -29,7 +27,6 @@ try:
                 if x.get("operationAmount").get("currency").get("name") == currency:
                     yield x
 
-
     usd_transactions = filter_by_currency(transactions, "USD")
     for i in range(2):
         print(next(usd_transactions))
@@ -51,15 +48,15 @@ except StopIteration:
 
 
 try:
+
     def card_number_generator(start, stop):
         while True:
-            card = '0000 0000 0000 000'
+            card = "0000 0000 0000 000"
             card += str(start)
             if start > stop:
-                exit()
+                break
             start += 1
             yield card
-
 
     for card_number in card_number_generator(1, 5):
         print(card_number)
