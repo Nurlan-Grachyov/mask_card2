@@ -25,3 +25,9 @@ def get_mask_account(acc: str) -> str:
         return mask_acc
     else:
         return "Некорректный ввод"
+
+
+if __name__ == "__main__":
+    print(get_mask_card_number("123456789098765"))
+
+    print(get_mask_account("1234567890098754321"))
