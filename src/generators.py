@@ -49,17 +49,20 @@ try:
 except StopIteration:
     pass
 
-result = ""
+
 try:
-
-    def card_number_generator(card):
+    def card_number_generator(start, stop):
         while True:
-            card += str(random.randint(1, 9))
-            if len(card) == 16:
-                true_card = card[:4] + " " + card[4:8] + " " + card[8:12] + "  " + card[12:16]
-                yield true_card
+            card = '0000 0000 0000 000'
+            card += str(start)
+            if start > stop:
+                exit()
+            start += 1
+            yield card
 
-    gen = card_number_generator(result)
-    print(next(gen))
+
+    for card_number in card_number_generator(1, 5):
+        print(card_number)
+
 except StopIteration:
     pass
