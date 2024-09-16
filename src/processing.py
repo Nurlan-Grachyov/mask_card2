@@ -38,7 +38,7 @@ if __name__ == "__main__":
     ]
     print(filter_by_state(lst, user_state))
 
-    user_reverse = input()
+    user_reverse = input("да или нет")
     list_date = [
         {"id": 41428829, "state": "EXECUTED", "date": "2018-10-14T08:21:33.419441"},
         {"id": 939719570, "state": "EXECUTED", "date": "2018-06-30T02:08:58.425572"},
