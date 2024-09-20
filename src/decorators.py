@@ -1,7 +1,7 @@
 from typing import Any
 
 
-def log(filename: str):
+def log(filename: str) -> Any:
     def wrapper(func: Any) -> Any:
         def inner(*args: int, **kwargs: int) -> int:
             if filename:
