@@ -48,6 +48,9 @@ def test_sort_by_date(
     input_3: list[dict[str, str | int]],
     reverse_3: str,
     exit_3: list[dict[str, str | int]],
+    input_4: list[dict[str, str | int]],
+    reverse_4: str,
+    exit_4: list[dict[str, str | int]],
 ) -> Any:
     assert sort_by_date(input_1, reverse_1) == exit_1
     assert sort_by_date(input_2, reverse_2) == exit_2
