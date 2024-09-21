@@ -1,6 +1,6 @@
 from typing import Any
 
-
+user_file = input()
 def log(filename):
     """Декоратор, который автоматически логирует начало и конец выполнения функции, а также ее результаты или возникшие ошибки"""
 
@@ -36,11 +36,12 @@ def log(filename):
     return wrapper
 
 
-@log(filename="mylog.txt")
+@log(filename=user_file)
 def my_function(x: int, y: int) -> int:
     """Декорируемая функция, которая перемножает два значения"""
     return x * y
 
 
 if __name__ == "__main__":
+
     print(my_function("3", "5"))
