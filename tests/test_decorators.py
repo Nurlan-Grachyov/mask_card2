@@ -11,6 +11,11 @@ def my_func_1(x: int, y: int) -> int:
     return x // y
 
 
+@log(filename="")
+def my_func_2(x: int, y: int) -> int:
+    return x // y
+
+
 def test_my_func(capsys):
     my_func("2", "5")
     with open("mylog.txt", mode="r", encoding="UTF-8") as file:
@@ -18,9 +23,9 @@ def test_my_func(capsys):
         print(text)
     captured = capsys.readouterr()
     assert (
-            captured.out
-            == "Function started\nFunction finished\nmy_function error: can't multiply sequence by non-int of type 'str'. Inputs: (('2', '5'), {}) \n\n"
-        )
+        captured.out
+        == "Function started\nFunction finished\nmy_function error: can't multiply sequence by non-int of type 'str'. Inputs: (('2', '5'), {}) \n\n"
+    )
 
 
 def test_my_func_1(capsys):
@@ -29,8 +34,13 @@ def test_my_func_1(capsys):
         text = file.read()
         print(text)
     captured = capsys.readouterr()
+    assert captured.out == "Function started\nFunction finished\nmy_function 3\n\n"
+
+
+def test_my_func_2(capsys):
+    my_func_2("15", "5")
+    captured = capsys.readouterr()
     assert (
-            captured.out
-            == "Function started\nFunction finished\nmy_function 3\n\n")
-
-
+        captured.out
+        == "Function started\n\nFunction finished\n\nmy_function error: unsupported operand type(s) for //: 'str' and 'str'. Inputs: (('15', '5'), {})\n"
+    )

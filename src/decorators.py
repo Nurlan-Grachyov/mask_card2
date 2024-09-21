@@ -3,9 +3,10 @@ from typing import Any
 
 def log(filename):
     """Декоратор, который автоматически логирует начало и конец выполнения функции, а также ее результаты или возникшие ошибки"""
+
     def wrapper(func: Any) -> Any:
         def inner(*args: int, **kwargs: int) -> int:
-            if filename:
+            if len(filename) > 0:
                 try:
                     result = func(*args, **kwargs)
                     log_mes = f"my_function {result}\n"
@@ -21,7 +22,7 @@ def log(filename):
                     print("Function started\n")
                     result = func(*args, **kwargs)
                     print("Function finished\n")
-                    log_mes = "my_function ok"
+                    log_mes = f"my_function {result}"
                     print(log_mes)
                 except Exception as e:
                     print("Function finished\n")
@@ -34,9 +35,12 @@ def log(filename):
 
     return wrapper
 
+
 @log(filename="mylog.txt")
 def my_function(x: int, y: int) -> int:
     """Декорируемая функция, которая перемножает два значения"""
     return x * y
 
-print(my_function(3, 5))
+
+if __name__ == "__main__":
+    print(my_function("3", "5"))
