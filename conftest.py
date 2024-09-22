@@ -1,3 +1,5 @@
+from typing import Any
+
 import pytest
 
 
@@ -97,7 +99,7 @@ def exit_4() -> list[dict[str, int | str]]:
 
 
 @pytest.fixture
-def input_currency():
+def input_currency() -> Any:
     return [
         {
             "id": 939719570,
@@ -112,5 +114,5 @@ def input_currency():
 
 
 @pytest.fixture
-def exit_currency():
+def exit_currency() -> str:
     return "Нет значений"

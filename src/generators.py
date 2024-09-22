@@ -1,3 +1,5 @@
+from typing import Any
+
 transactions = [
     {
         "id": 939719570,
@@ -47,7 +49,7 @@ transactions = [
 ]
 try:
 
-    def filter_by_currency(data, currency):
+    def filter_by_currency(data: Any, currency: str) -> Any:
         """Функция возвращает итератор, выдающий транзакции, где валюта операции соответствует заданной."""
         if len(data) > 1:
             for x in data:
@@ -65,7 +67,7 @@ except StopIteration:
 
 try:
 
-    def transaction_descriptions(data):
+    def transaction_descriptions(data: list[dict[str, Any]]) -> Any:
         """Функция, принимающая список словарей с транзакциями и возвращает описание каждой операции по очереди."""
         for y in data:
             yield y["description"]
@@ -79,7 +81,7 @@ except StopIteration:
 
 try:
 
-    def card_number_generator(start, stop):
+    def card_number_generator(start: Any, stop: Any) -> Any:
         """Генератор, который выдает номера банковских карт в формате XXXX XXXX XXXX XXXX.  Генератор может
         сгенерировать номера карт в заданном диапазоне от 0000 0000 0000 0001 до 9999 9999 9999 9999.
         Генератор принимает начальное и конечное значения для генерации диапазона номеров."""

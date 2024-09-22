@@ -1,11 +1,11 @@
 from typing import Any
 
 
-def log(filename):
+def log(filename: str) -> Any:
     """Декоратор, который автоматически логирует начало и конец выполнения функции, а также ее результаты или возникшие ошибки"""
 
     def wrapper(func: Any) -> Any:
-        def inner(*args: int, **kwargs: int) -> int:
+        def inner(*args: int, **kwargs: int) -> Any:
             if len(filename) > 0:
                 try:
                     result = func(*args, **kwargs)
@@ -43,4 +43,4 @@ def my_function(x: int, y: int) -> int:
 
 
 if __name__ == "__main__":
-    print(my_function("3", "5"))
+    print(my_function(3, 5))

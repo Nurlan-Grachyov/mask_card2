@@ -1,9 +1,11 @@
+from typing import Any
+
 import pytest
 
 from src.generators import card_number_generator, filter_by_currency, transaction_descriptions
 
 
-def test_filter_by_currency(input_currency, exit_currency):
+def test_filter_by_currency(input_currency: list[dict[str, Any]], exit_currency: str) -> Any:
     filter_currency = filter_by_currency(input_currency, exit_currency)
     try:
         result = next(filter_currency)
@@ -13,7 +15,7 @@ def test_filter_by_currency(input_currency, exit_currency):
 
 
 @pytest.mark.parametrize(
-    "input_descriptions,abc, exit_descriptions",
+    "input_descriptions, abc, exit_descriptions",
     [
         (
             [
@@ -41,7 +43,7 @@ def test_filter_by_currency(input_currency, exit_currency):
         ),
     ],
 )
-def test_transaction_descriptions(input_descriptions, abc, exit_descriptions):
+def test_transaction_descriptions(input_descriptions: Any, abc: Any, exit_descriptions: str) -> Any:
     descriptions = transaction_descriptions(input_descriptions)
     try:
         result_2 = next(descriptions)
@@ -60,7 +62,7 @@ def test_transaction_descriptions(input_descriptions, abc, exit_descriptions):
         ("0000 0000 0000 000", "0000 0000 0000 0005"),
     ],
 )
-def test_card_number_generator(card, new_card):
+def test_card_number_generator(card: str, new_card: str) -> Any:
     number_generator = card_number_generator(card, new_card)
     try:
         result_3 = next(number_generator)

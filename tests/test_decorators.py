@@ -1,3 +1,5 @@
+from typing import Any
+
 from src.decorators import log
 
 
@@ -16,7 +18,7 @@ def my_func_2(x: int, y: int) -> int:
     return x // y
 
 
-def test_my_func(capsys):
+def test_my_func(capsys: Any) -> Any:
     my_func("2", "5")
     with open("mylog.txt", mode="r", encoding="UTF-8") as file:
         text = file.read()
@@ -28,7 +30,7 @@ def test_my_func(capsys):
     )
 
 
-def test_my_func_1(capsys):
+def test_my_func_1(capsys: Any) -> Any:
     my_func_1(15, 5)
     with open("mylog1.txt", mode="r", encoding="UTF-8") as file:
         text = file.read()
@@ -37,7 +39,7 @@ def test_my_func_1(capsys):
     assert captured.out == "Function started\nFunction finished\nmy_function 3\n\n"
 
 
-def test_my_func_2(capsys):
+def test_my_func_2(capsys: Any) -> Any:
     my_func_2("15", "5")
     captured = capsys.readouterr()
     assert (
