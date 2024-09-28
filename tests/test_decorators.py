@@ -25,8 +25,8 @@ def test_my_func(capsys: Any) -> Any:
         print(text)
     captured = capsys.readouterr()
     assert (
-        captured.out
-        == "Function started\nFunction finished\nmy_function error: can't multiply sequence by non-int of type 'str'. Inputs: (('2', '5'), {}) \n\n"
+        captured.out == """Function started\nFunction finished\nmy_function error:"""
+        """ can't multiply sequence by non-int of type 'str'. Inputs: (('2', '5'), {}) \n\n"""
     )
 
 
@@ -43,6 +43,6 @@ def test_my_func_2(capsys: Any) -> Any:
     my_func_2("15", "5")
     captured = capsys.readouterr()
     assert (
-        captured.out
-        == "Function started\n\nFunction finished\n\nmy_function error: unsupported operand type(s) for //: 'str' and 'str'. Inputs: (('15', '5'), {})\n"
+        captured.out == """Function started\n\nFunction finished\n\nmy_function error:"""
+        """ unsupported operand type(s) for //: 'str' and 'str'. Inputs: (('15', '5'), {})\n"""
     )
