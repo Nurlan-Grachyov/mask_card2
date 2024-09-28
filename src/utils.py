@@ -1,9 +1,10 @@
 import json
+from typing import Any
 
 from src.external_api import conversion_currency
 
 
-def get_transactions(file):
+def get_transactions(file: str) -> Any:
     """Функция, возвращающая данные из файла json"""
     with open(file, encoding="UTF-8") as f:
         try:
@@ -15,7 +16,7 @@ def get_transactions(file):
         return data
 
 
-def get_sum():
+def get_sum() -> Any:
     """Функция, суммирующая суммы транзакций в рублях"""
     data = get_transactions("C:/Users/Nurlan/IT/Проекты/mask_card2/data/operations.json")
     lst_str = []

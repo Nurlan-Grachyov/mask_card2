@@ -1,21 +1,24 @@
 import os
+from typing import Any
 
 import requests
 from dotenv import load_dotenv
 
 
-def conversion_currency(to_curr, from_curr, amount):
+def conversion_currency(to_curr: str, from_curr: str, amount: str) -> Any:
     """Функция, конвертирующая сумму из иностранной валюты в рубли"""
     load_dotenv()
-    apikey = os.getenv("API_KEY")
-    url = f"https://api.apilayer.com/exchangerates_data/convert?to={to_curr}&from={from_curr}&amount={amount}"
+    access_key = os.getenv("access_key")
+    url = (
+        f"https://api.currencylayer.com/convert?from={from_curr}&to={to_curr}&amount={amount}&access_key={access_key}"
+    )
 
-    headers = {"apikey": apikey}
+    headers = {"access_key": "access_key=" + access_key}
 
     response = requests.get(url, headers=headers)
 
     result = response.json()
-    return result['result']
+    return result
 
 
 if __name__ == "__main__":
