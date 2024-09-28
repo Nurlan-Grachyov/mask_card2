@@ -18,7 +18,7 @@ def conversion_currency(to_curr: str, from_curr: str, amount: str) -> Any:
     response = requests.get(url, headers=headers)
 
     result = response.json()
-    return result
+    return result['result']
 
 
 if __name__ == "__main__":

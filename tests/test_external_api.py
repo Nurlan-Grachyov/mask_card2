@@ -12,7 +12,7 @@ headers = {"access_key": "access_key=" + access_key}
 
 
 @patch("requests.get")
-def test_get_github_user_info(mock_get: Any) -> Any:
+def test_conversion_currency(mock_get: Any) -> Any:
     mock_get.return_value.json.return_value = {
         "success": True,
         "terms": "https://currencylayer.com/terms",

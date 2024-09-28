@@ -38,4 +38,5 @@ def get_sum() -> Any:
 
 
 if __name__ == "__main__":
+    print(get_transactions("C:/Users/Nurlan/IT/Проекты/mask_card2/data/operations.json"))
     print(get_sum())
