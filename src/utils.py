@@ -10,7 +10,7 @@ def get_transactions(file):
             data = json.load(f)
         except json.decoder.JSONDecodeError:
             return []
-        if len(data) == 0 or type(data) != list:
+        if len(data) == 0 or type(data) is not list:
             return []
         return data
 
@@ -23,8 +23,10 @@ def get_sum():
     for i in data:
         if len(i) == 0:
             continue
-        elif i["operationAmount"]["currency"]["code"] != 'RUB':
-            conv_curr = conversion_currency('RUB', i["operationAmount"]["currency"]["code"], i["operationAmount"]["amount"])
+        elif i["operationAmount"]["currency"]["code"] != "RUB":
+            conv_curr = conversion_currency(
+                "RUB", i["operationAmount"]["currency"]["code"], i["operationAmount"]["amount"]
+            )
             amount.append(conv_curr)
         else:
             lst_str.append(i["operationAmount"]["amount"])
