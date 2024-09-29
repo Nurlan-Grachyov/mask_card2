@@ -25,3 +25,16 @@ def get_sum():
     return total_amount
 
 print(get_sum())
+
+a = {
+        "success": True,
+        "terms": "https://currencylayer.com/terms",
+        "privacy": "https://currencylayer.com/privacy",
+        "query": {"from": "USD", "to": "RUB", "amount": 200000},
+        "info": {"timestamp": 1727518695, "quote": 94.224321},
+        "result": 18844864.2,
+    }
+    mock_get.assert_called_once_with(
+        f"https://api.currencylayer.com/convert?from=USD&to=RUB&amount=200000&access_key=" + access_key,
+        headers=headers,
+    )
