@@ -9,12 +9,12 @@ fileFormatter = logging.Formatter("%(asctime)s %(name)s %(levelname)s: %(message
 fileHandler.setFormatter(fileFormatter)
 logger.addHandler(fileHandler)
 
-# logger_mistake = logging.getLogger("masks")
-# logger_mistake.setLevel(logging.ERROR)
-# fileHandler_mistake = logging.FileHandler(PATH_TO_PROJECT / "logs" / "masks.log", encoding="UTF-8", mode="w")
-# fileFormatter_mistake = logging.Formatter("%(asctime)s %(name)s %(levelname)s: %(message)s")
-# fileHandler_mistake.setFormatter(fileFormatter_mistake)
-# logger_mistake.addHandler(fileHandler_mistake)
+logger_mistake = logging.getLogger("masks1")
+logger_mistake.setLevel(logging.ERROR)
+fileHandler_mistake = logging.FileHandler(PATH_TO_PROJECT / "logs" / "masks.log", encoding="UTF-8", mode="w")
+fileFormatter_mistake = logging.Formatter("%(asctime)s %(name)s %(levelname)s: %(message)s")
+fileHandler_mistake.setFormatter(fileFormatter_mistake)
+logger_mistake.addHandler(fileHandler_mistake)
 
 
 def get_mask_card_number(card: str) -> str:
@@ -30,7 +30,7 @@ def get_mask_card_number(card: str) -> str:
         new_mask_card = mask_card[:-12] + " " + mask_card[-12:-8] + " " + mask_card[-8:-4] + " " + mask_card[-4:]
         return new_mask_card
     else:
-        logger.error("Ошибка! некорректный ввод реквизитов карты")
+        logger_mistake.error("Ошибка! некорректный ввод реквизитов карты")
         return "Некорректный ввод"
 
 
@@ -46,10 +46,10 @@ def get_mask_account(acc: str) -> str:
         mask_acc = acc.replace(slice_acc, "**")
         return mask_acc
     else:
-        logger.error("Ошибка! некорректный ввод реквизитов счета")
+        logger_mistake.error("Ошибка! некорректный ввод реквизитов счета")
         return "Некорректный ввод"
 
 
 if __name__ == "__main__":
-    print(get_mask_card_number("1234567890098765"))
-    print(get_mask_account("1234567890097654321"))
+    print(get_mask_card_number("1234567589099875"))
+    print(get_mask_account("1234567890096548321"))
