@@ -1,6 +1,6 @@
 import logging
 
-from src.utils import PATH_TO_PROJECT
+from utils import PATH_TO_PROJECT
 
 logger = logging.getLogger("masks")
 logger.setLevel(logging.INFO)
@@ -8,13 +8,6 @@ fileHandler = logging.FileHandler(PATH_TO_PROJECT / "logs" / "masks.log", encodi
 fileFormatter = logging.Formatter("%(asctime)s %(name)s %(levelname)s: %(message)s")
 fileHandler.setFormatter(fileFormatter)
 logger.addHandler(fileHandler)
-
-logger_mistake = logging.getLogger("masks1")
-logger_mistake.setLevel(logging.ERROR)
-fileHandler_mistake = logging.FileHandler(PATH_TO_PROJECT / "logs" / "masks.log", encoding="UTF-8", mode="w")
-fileFormatter_mistake = logging.Formatter("%(asctime)s %(name)s %(levelname)s: %(message)s")
-fileHandler_mistake.setFormatter(fileFormatter_mistake)
-logger_mistake.addHandler(fileHandler_mistake)
 
 
 def get_mask_card_number(card: str) -> str:
@@ -30,7 +23,7 @@ def get_mask_card_number(card: str) -> str:
         new_mask_card = mask_card[:-12] + " " + mask_card[-12:-8] + " " + mask_card[-8:-4] + " " + mask_card[-4:]
         return new_mask_card
     else:
-        logger_mistake.error("Ошибка! некорректный ввод реквизитов карты")
+        logger.error("Ошибка! некорректный ввод реквизитов карты")
         return "Некорректный ввод"
 
 
@@ -46,7 +39,7 @@ def get_mask_account(acc: str) -> str:
         mask_acc = acc.replace(slice_acc, "**")
         return mask_acc
     else:
-        logger_mistake.error("Ошибка! некорректный ввод реквизитов счета")
+        logger.error("Ошибка! некорректный ввод реквизитов счета")
         return "Некорректный ввод"
 
 
