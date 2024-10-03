@@ -5,7 +5,7 @@ from src.utils import PATH_TO_PROJECT
 PATH_TO_FILE = PATH_TO_PROJECT / "files" / "files.csv"
 
 
-@patch()
+@patch('to_dict')
 def test_read_csv(mock):
     mock.return_value = {
         "Name": {0: "Alice", 1: "Bob", 2: "Charlie"},
