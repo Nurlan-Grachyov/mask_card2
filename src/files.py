@@ -22,7 +22,7 @@ def read_file_csv(file):
         list_reader = reader.to_dict()
         return list_reader
     except Exception:
-        logger.error("Ошибка!")
+        logger.error("Ошибка")
         return []
 
 
@@ -36,7 +36,7 @@ def read_excel(file):
         list_reader = reader.to_dict()
         return list_reader
     except Exception:
-        logger.error("Ошибка!")
+        logger.error("Ошибка")
         return []
 
 
