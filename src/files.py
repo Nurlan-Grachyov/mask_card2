@@ -26,18 +26,16 @@ def read_file_csv(file):
         return []
 
 
-print(read_file_csv("../files/file.csv"))
+# print(read_file_csv('../files/file.csv'))
 
 
 def read_excel(file):
     try:
-        logger.info("Получаем данные файла")
-        reader = pd.read_excel(file)
-        list_reader = reader.to_dict()
-        return list_reader
+        data_excel = pd.read_excel(file)
+        dict_data = data_excel.to_dict()
+        return dict_data
     except Exception:
-        logger.error("Ошибка")
         return []
 
 
-print(read_excel(PATH_TO_EXCEL))
+print(read_excel("../files/file.xlsx"))
