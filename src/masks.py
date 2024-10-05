@@ -1,6 +1,6 @@
 import logging
 
-from utils import PATH_TO_PROJECT
+from src.utils import PATH_TO_PROJECT
 
 logger = logging.getLogger("masks")
 logger.setLevel(logging.INFO)
