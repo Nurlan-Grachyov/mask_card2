@@ -29,7 +29,7 @@ def read_file_csv(file='../files/file.csv'):
 print(read_file_csv())
 
 
-def read_excel(file):
+def read_excel(file='../files/file.xlsx'):
     try:
         logger.info("Получаем данные файла")
 
@@ -41,6 +41,8 @@ def read_excel(file):
 
         return []
 
+
+print(read_excel())
 
 
 def func():
