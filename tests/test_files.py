@@ -10,7 +10,7 @@ def test_read_csv(mock):
         "Age": {0: 25, 1: 30, 2: 35},
         "Gender": {0: "Female", 1: "Male", 2: "Male"},
     }
-    assert read_file_csv("../files/file.csv") == {
+    assert read_file_csv("../files/file.csv") ==  {
         "Name": {0: "Alice", 1: "Bob", 2: "Charlie"},
         "Age": {0: 25, 1: 30, 2: 35},
         "Gender": {0: "Female", 1: "Male", 2: "Male"},
