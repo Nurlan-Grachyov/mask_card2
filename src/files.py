@@ -15,7 +15,7 @@ fileHandler.setFormatter(fileFormatter)
 logger.addHandler(fileHandler)
 
 
-def read_file_csv(file='../files/file.csv'):
+def read_file_csv(file):
     try:
         logger.info("Получаем данные файла")
         reader = pd.read_csv(file)
@@ -26,10 +26,9 @@ def read_file_csv(file='../files/file.csv'):
         return []
 
 
-print(read_file_csv())
 
 
-def read_excel(file='../files/file.xlsx'):
+def read_excel(file):
     try:
         logger.info("Получаем данные файла")
 
@@ -42,8 +41,7 @@ def read_excel(file='../files/file.xlsx'):
         return []
 
 
-print(read_excel())
 
-
-def func():
-    return []
+if __name__ == '__main__':
+    print(read_file_csv(PATH_TO_CSV))
+    print(read_excel(PATH_TO_EXCEL))
