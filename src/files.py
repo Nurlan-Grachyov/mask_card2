@@ -26,8 +26,6 @@ def read_file_csv(file):
         return []
 
 
-
-
 def read_excel(file):
     try:
         logger.info("Получаем данные файла")
@@ -41,7 +39,6 @@ def read_excel(file):
         return []
 
 
-
-if __name__ == '__main__':
+if __name__ == "__main__":
     print(read_file_csv(PATH_TO_CSV))
     print(read_excel(PATH_TO_EXCEL))
