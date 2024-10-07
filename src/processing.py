@@ -5,7 +5,7 @@ def filter_by_state(start_list: list[dict[str, object]], state: str = "EXECUTED"
     """Сортировка списка словарей по ключу state"""
     filtered_data = []
     for i in start_list:
-        if i["state"] == state:
+        if i.get("state") == state:
             filtered_data.append(i)
         else:
             continue

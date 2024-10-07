@@ -45,9 +45,8 @@ def main():
             if user_input_state != "EXECUTED" and user_input_state != "CANCELED" and user_input_state != "PENDING":
                 print(f"Статус операции {user_input_state} недоступен.")
                 continue
-            filter_by_state(transactions, user_input_state)
-
             print(f"Операции отфильтрованы по статусу {user_input_state}")
+            print(filter_by_state(transactions, user_input_state))
             break
 
 
