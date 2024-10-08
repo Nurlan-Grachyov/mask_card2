@@ -2,6 +2,7 @@ import csv
 import logging
 
 import pandas as pd
+from pandas import read_csv
 
 from src.utils import PATH_TO_PROJECT
 
@@ -19,16 +20,10 @@ logger.addHandler(fileHandler)
 def read_file_csv(file):
     # try:
         logger.info("Получаем данные файла")
-        with open(file, encoding='UTF-8') as f:
-            reader = csv.DictReader(f)
-            return reader
+        reader = read_csv(file)
+        dict_reader = reader.to_dict()
+        return dict_reader
 
-        # reader = pd.read_csv(file)
-        # data_dict = reader.to_dict()
-        # return data_dict
-    # except Exception:
-    #     logger.error("Ошибка!")
-    #     return []
 
 
 def read_excel(file):
