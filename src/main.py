@@ -21,15 +21,15 @@ def main():
             if user_input_file == "1":
                 print("Для обработки выбран JSON-файл.")
                 transactions_from_file = get_transactions(os.path.abspath(PATH_TO_FILE))
-                return transactions_from_file
+                return transactions_from_file, 'JSON'
             elif user_input_file == "2":
                 print("Для обработки выбран CSV-файл.")
                 transactions_from_file = read_file_csv(PATH_TO_CSV)
-                return transactions_from_file
+                return transactions_from_file, 'CSV'
             elif user_input_file == "3":
                 print("Для обработки выбран XLSX-файл.")
                 transactions_from_file = read_excel(PATH_TO_EXCEL)
-                return transactions_from_file
+                return transactions_from_file, 'XLSX'
             else:
                 print("Введен некорректный номер. Попробуйте заново.")
                 continue

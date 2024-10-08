@@ -3,13 +3,13 @@ from typing import Any
 
 def filter_by_state(start_list: list[dict[str, object]], state: str = "EXECUTED") -> list[dict[str, object]]:
     """Сортировка списка словарей по ключу state"""
-    filtered_data = []
-    for i in start_list:
-        if i.get("state") == state:
-            filtered_data.append(i)
-        else:
-            continue
-    return filtered_data
+    # filtered_data = []
+    # for i in start_list:
+    #     if i.get('state') == state:
+    #         filtered_data.append(i)
+    #     else:
+    #         continue
+    # return filtered_data
 
 
 def sort_by_date(list_d: list[dict[str, Any]], reverse: str) -> Any:
@@ -45,4 +45,4 @@ if __name__ == "__main__":
         {"id": 594226727, "state": "CANCELED", "date": "2018-09-12T21:27:25.241689"},
         {"id": 615064591, "state": "CANCELED", "date": "2018-10-14T08:21:33.419441"},
     ]
-    print(sort_by_date(list_date, user_reverse))
+    # print(sort_by_date(list_date, user_reverse))

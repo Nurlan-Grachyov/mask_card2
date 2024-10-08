@@ -1,3 +1,4 @@
+import csv
 import logging
 
 import pandas as pd
@@ -16,23 +17,25 @@ logger.addHandler(fileHandler)
 
 
 def read_file_csv(file):
-    try:
+    # try:
         logger.info("Получаем данные файла")
-        reader = pd.read_csv(file)
-        list_reader = reader.to_dict()
-        return list_reader
-    except Exception:
-        logger.error("Ошибка!")
-        return []
+        with open(file, encoding='UTF-8') as f:
+            reader = csv.DictReader(f)
+            return reader
+
+        # reader = pd.read_csv(file)
+        # data_dict = reader.to_dict()
+        # return data_dict
+    # except Exception:
+    #     logger.error("Ошибка!")
+    #     return []
 
 
 def read_excel(file):
     try:
         logger.info("Получаем данные файла")
-
         data_excel = pd.read_excel(file)
-        dict_data = data_excel.to_dict()
-        return dict_data
+        return data_excel
     except Exception:
         logger.error("Ошибка!")
 
@@ -40,5 +43,5 @@ def read_excel(file):
 
 
 if __name__ == "__main__":
-    # print(read_file_csv(PATH_TO_CSV))
-    print(read_excel(PATH_TO_EXCEL))
+    print(read_file_csv(PATH_TO_CSV))
+    # print(read_excel(PATH_TO_EXCEL))
