@@ -5,11 +5,12 @@ def filter_by_state(start_list: list[dict[str, object]], state: str = "EXECUTED"
     """Сортировка списка словарей по ключу state"""
     filtered_data = []
     for i in start_list:
-        if i.get('state') == state:
+        if i["state"] == state:
             filtered_data.append(i)
         else:
             continue
     return filtered_data
+
 
 
 def sort_by_date(list_d: list[dict[str, Any]], reverse: str) -> Any:

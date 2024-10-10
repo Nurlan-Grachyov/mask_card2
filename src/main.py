@@ -33,7 +33,6 @@ def main():
             else:
                 print("Введен некорректный номер. Попробуйте заново.")
                 continue
-    get_transactions_from_file()
 
 
     def filter_by_state_main(transactions):
@@ -47,34 +46,34 @@ def main():
                 print(f"Статус операции {user_input_state} недоступен.")
                 continue
             print(f"Операции отфильтрованы по статусу {user_input_state}")
-            print(filter_by_state(transactions, user_input_state))  #УДАЛИТЬ
-            break
-        return filter_by_state(transactions, user_input_state)
+            filter = filter_by_state(transactions, user_input_state)
+            return filter
+
 
 
     print(filter_by_state_main(get_transactions_from_file()))
 
 
-    def sort_by_date_main():
-        while True:
-            print("Отсортировать операции по дате? Да/Нет")
-            user_input_date = input('Введите да или нет ').lower()
-            if user_input_date == 'да':
-                print("Отсортировать по возрастанию или по убыванию?")
-                user_input_up_down = input('в порядке убывания / в порядке возрастания ').lower()
-                if user_input_up_down == 'в порядке убывания' or user_input_up_down == 'в порядке возрастания':
-                    sort_by_date(filter_by_state_main(get_transactions_from_file()), user_input_date)
-                else:
-                    print(f"Введен некорректный ответ. Попробуйте заново.")
-                    continue
-            elif user_input_date == 'нет':
-                pass
-            else:
-                print(f"Введен некорректный ответ. Попробуйте заново.")
-                continue
-
-
-    print(sort_by_date_main())
+    # def sort_by_date_main():
+    #     while True:
+    #         print("Отсортировать операции по дате? Да/Нет")
+    #         user_input_date = input('Введите да или нет ').lower()
+    #         if user_input_date == 'да':
+    #             print("Отсортировать по возрастанию или по убыванию?")
+    #             user_input_up_down = input('в порядке убывания / в порядке возрастания ').lower()
+    #             if user_input_up_down == 'в порядке убывания' or user_input_up_down == 'в порядке возрастания':
+    #                 sort_by_date(filter_by_state_main(get_transactions_from_file()), user_input_date)
+    #             else:
+    #                 print(f"Введен некорректный ответ. Попробуйте заново.")
+    #                 continue
+    #         elif user_input_date == 'нет':
+    #             pass
+    #         else:
+    #             print(f"Введен некорректный ответ. Попробуйте заново.")
+    #             continue
+    #
+    #
+    # print(sort_by_date_main())
 
 #         while True:
 #             print("Выводить только рублевые транзакции? Да/Нет")
