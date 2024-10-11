@@ -41,11 +41,14 @@ transactions = [
 
 
 def search_description(operations, search_bar):
+    """Функция для поиска в списке словарей операций по заданной строке — описанию с использованием библиотеки
+    re."""
     search = [operation for operation in operations if re.findall(search_bar, operation["description"])]
     return search
 
 
 def count_categories(operations, categories):
+    """Функция для подсчета количества банковских операций определенного типа."""
     description = []
     for operation in operations:
         if operation["description"] in categories:
@@ -55,7 +58,7 @@ def count_categories(operations, categories):
 
 
 if __name__ == "__main__":
-    search_description(transactions, "Перевод организации")
+    print(search_description(transactions, "Перевод организации"))
 
     list_categories = ["Перевод организации", "Перевод с карты на карту", "Перевод со счета на счет"]
-    count_categories(transactions, list_categories)
+    print(count_categories(transactions, list_categories))

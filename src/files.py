@@ -2,8 +2,6 @@ import csv
 import logging
 
 import openpyxl
-import pandas as pd
-from pandas import read_csv
 
 from src.utils import PATH_TO_PROJECT
 
@@ -21,32 +19,32 @@ logger.addHandler(fileHandler)
 def read_file_csv(file):
     try:
         logger.info("Получаем данные файла")
-        with open(file, 'r', encoding='UTF-8') as f:
-            reader = csv.DictReader(f, delimiter=';')
+        with open(file, "r", encoding="UTF-8") as f:
+            reader = csv.DictReader(f, delimiter=";")
 
             filtered_data = []
             for row in reader:
-                if row["id"] == '' or row["state"] == '' or row["date"] == '':
+                if row["id"] == "" or row["state"] == "" or row["date"] == "":
                     continue
-                filtered_data.append({
-                    "id": int(row["id"]),
-                    "state": row["state"],
-                    "date": row["date"],
-                    "operationAmount": {
-                        "amount": row["amount"],
-                        "currency": {
-                            "name": row["currency_name"],
-                            "code": row["currency_code"]
-                        }
-                    },
-                    "from": row.get("from", ''),
-                    "to": row.get("to", ''),
-                    "description": row["description"]
-                })
+                filtered_data.append(
+                    {
+                        "id": int(row["id"]),
+                        "state": row["state"],
+                        "date": row["date"],
+                        "operationAmount": {
+                            "amount": row["amount"],
+                            "currency": {"name": row["currency_name"], "code": row["currency_code"]},
+                        },
+                        "from": row.get("from", ""),
+                        "to": row.get("to", ""),
+                        "description": row["description"],
+                    }
+                )
             return filtered_data
     except Exception:
         logger.error("Ошибка!")
         return []
+
 
 def read_excel(file):
     try:
@@ -60,21 +58,20 @@ def read_excel(file):
             if row_data["id"] is None or row_data["state"] is None or row_data["date"] is None:
                 continue
 
-            transactions.append({
-                "id": int(row_data["id"]),
-                "state": row_data["state"],
-                "date": row_data["date"],
-                "operationAmount": {
-                    "amount": row_data["amount"],
-                    "currency": {
-                        "name": row_data["currency_name"],
-                        "code": row_data["currency_code"]
-                    }
-                },
-                "from": row_data.get("from", ""),
-                "to": row_data.get("to", ""),
-                "description": row_data["description"]
-            })
+            transactions.append(
+                {
+                    "id": int(row_data["id"]),
+                    "state": row_data["state"],
+                    "date": row_data["date"],
+                    "operationAmount": {
+                        "amount": row_data["amount"],
+                        "currency": {"name": row_data["currency_name"], "code": row_data["currency_code"]},
+                    },
+                    "from": row_data.get("from", ""),
+                    "to": row_data.get("to", ""),
+                    "description": row_data["description"],
+                }
+            )
         return transactions
     except FileNotFoundError:
         print(f"Файл не найден: {file}")

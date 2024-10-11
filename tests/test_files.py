@@ -1,6 +1,6 @@
-from unittest.mock import patch, Mock
+from unittest.mock import Mock, patch
 
-from src.files import read_file_csv, read_excel
+from src.files import read_excel, read_file_csv
 
 
 @patch("src.files.pd.read_csv")  # Подменяем pd.read_csv
