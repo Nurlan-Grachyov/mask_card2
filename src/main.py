@@ -33,6 +33,7 @@ def main():
         print("Введен некорректный номер.")
         return
 
+
     while True:
         print(
             """Введите статус, по которому необходимо выполнить фильтрацию.
@@ -46,6 +47,7 @@ def main():
         filter = filter_by_state(transactions_from_file, user_input_state)
         break
 
+
     print("Отсортировать операции по дате? Да/Нет")
     user_input_date = input("Введите да или нет ").lower()
     if user_input_date == "да":
@@ -53,16 +55,15 @@ def main():
         user_input_up_down = input("в порядке убывания / в порядке возрастания ").lower()
         if user_input_up_down == "в порядке убывания" or user_input_up_down == "в порядке возрастания":
             filter_transaction_date = sort_by_date(filter, user_input_up_down)
-
         else:
             print("Введен некорректный ответ.")
             return
     elif user_input_date == "нет":
         filter_transaction_date = filter
-
     else:
         print("Введен некорректный ответ.")
         return
+
 
     print("Выводить только рублевые транзакции? Да/Нет")
     user_input_curr = input("Введите да или нет: ").lower()
@@ -79,6 +80,7 @@ def main():
         print("Введен некорректный ответ.")
         return
 
+
     print("Отфильтровать список транзакций по определенному слову в описании? Да/Нет")
     sort_by_word = input("Введите да или нет: ").lower()
     if sort_by_word == "да":
@@ -87,12 +89,10 @@ def main():
         for trans in rub_trans:
             if sort_by_word_yes in trans["description"]:
                 trans_word.append(trans)
-
     elif sort_by_word == "нет":
         trans_word = []
         for trans in rub_trans:
             trans_word.append(trans)
-
     else:
         print("Введен некорректный ответ.")
         return
@@ -100,8 +100,10 @@ def main():
         print("Не найдено ни одной транзакции, подходящей под ваши условия фильтрации")
         return
 
+
     print("Распечатываю итоговый список транзакций...")
-    print(f"Всего банковских операций в выборке: {len(trans_word)}")
+    print(f"Всего банковских операций в выборке: {len(trans_word)}\n")
+
 
     for trans in trans_word:
         if trans.get("from") and trans.get("to"):
