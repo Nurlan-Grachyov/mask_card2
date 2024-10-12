@@ -47,6 +47,9 @@ def search_description(operations, search_bar):
     return search
 
 
+list_categories = ["Перевод организации", "Перевод с карты на карту", "Перевод со счета на счет"]
+
+
 def count_categories(operations, categories):
     """Функция для подсчета количества банковских операций определенного типа."""
     description = []
@@ -58,7 +61,6 @@ def count_categories(operations, categories):
 
 
 if __name__ == "__main__":
-    print(search_description(transactions, "Перевод организации"))
+    # print(search_description(transactions, "Перевод организации"))
 
-    list_categories = ["Перевод организации", "Перевод с карты на карту", "Перевод со счета на счет"]
     print(count_categories(transactions, list_categories))

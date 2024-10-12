@@ -15,7 +15,7 @@ def input_1() -> list[dict[str, int | str]]:
 
 @pytest.fixture
 def reverse_1() -> str:
-    return "да"
+    return "в порядке убывания"
 
 
 @pytest.fixture
@@ -40,7 +40,7 @@ def input_2() -> list[dict[str, int | str]]:
 
 @pytest.fixture
 def reverse_2() -> str:
-    return "да"
+    return "в порядке убывания"
 
 
 @pytest.fixture
@@ -60,7 +60,7 @@ def input_3() -> list[dict[str, int | str]]:
 
 @pytest.fixture
 def reverse_3() -> str:
-    return "нет"
+    return "в порядке возрастания"
 
 
 @pytest.fixture

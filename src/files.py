@@ -79,5 +79,5 @@ def read_excel(file):
 
 
 if __name__ == "__main__":
-    # print(read_file_csv(PATH_TO_CSV))
-    print(read_excel(PATH_TO_EXCEL))
+    print(read_file_csv(PATH_TO_CSV))
+    # print(read_excel(PATH_TO_EXCEL))
