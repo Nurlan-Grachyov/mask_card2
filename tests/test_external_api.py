@@ -1,14 +1,7 @@
-import os
 from typing import Any
 from unittest.mock import patch
 
-from dotenv import load_dotenv
-
 from src.external_api import conversion_currency
-
-load_dotenv()
-access_key = os.getenv("access_key")
-headers = {"access_key": "access_key=" + access_key}
 
 
 @patch("requests.get")
